@@ -1,29 +1,29 @@
-    document.addEventListener("DOMContentLoaded", function() {
-        const datepicker = document.getElementById('datepicker-input');
-        const calendar = document.getElementById('calendar');
+document.addEventListener("DOMContentLoaded", function() {
+    const datepicker = document.getElementById('datepicker-input');
+    const calendar = document.getElementById('calendar');
 
-        datepicker.addEventListener("focus", function() {
-            const currentDate = new Date();
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth() + 1;
-            const day = currentDate.getDate();
-            const formattedDate = year + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
-            
-            datepicker.value = formattedDate;
-        });
+    datepicker.addEventListener("focus", function() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() + 1;
+        const day = currentDate.getDate();
+        const formattedDate = year + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
+        
+        datepicker.value = formattedDate;
+    });
 
-        calendar.addEventListener("click", function(event) {
-            if (event.target.classList.contains("date-option")) {
-                datepicker.value = event.target.textContent;
-                calendar.style.display = "none";
-            }
-        });
+    calendar.addEventListener("click", function(event) {
+        if (event.target.classList.contains("date-option")) {
+            datepicker.value = event.target.textContent;
+            calendar.style.display = "none";
+        }
     });
 
     initMultiStepForm();
+});
 
 function initMultiStepForm() {
-    const progressNumber = document.querySelectorAll(".step").length;
+    const progressNumber = 4; // Set the progressNumber to 4
     const slidePage = document.querySelector(".slide-page");
     const submitBtn = document.querySelector(".submit");
     const progressText = document.querySelectorAll(".step p");
@@ -98,4 +98,4 @@ function initMultiStepForm() {
         }
         return inputsValid;
     }
-             }
+                              }
