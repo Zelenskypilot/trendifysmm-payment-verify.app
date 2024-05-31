@@ -1,4 +1,3 @@
-
     document.addEventListener("DOMContentLoaded", function() {
         const datepicker = document.getElementById('datepicker-input');
         const calendar = document.getElementById('calendar');
@@ -20,8 +19,7 @@
             }
         });
     });
-    
-    
+
     initMultiStepForm();
 
 function initMultiStepForm() {
@@ -51,7 +49,6 @@ function initMultiStepForm() {
             event.preventDefault();
 
             inputsValid = validateInputs(this);
-            // inputsValid = true;
 
             if (inputsValid) {
                 slidePage.style.marginLeft = `-${
@@ -77,15 +74,12 @@ function initMultiStepForm() {
             current -= 1;
         });
     }
-    submitBtn.addEventListener("click", function () {
-        bullet[current - 1].classList.add("active");
-        progressCheck[current - 1].classList.add("active");
-        progressText[current - 1].classList.add("active");
-        current += 1;
-        setTimeout(function () {
-            alert("Your Form Successfully Signed up");
-            location.reload();
-        }, 800);
+
+    submitBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (validateInputs(this)) {
+            document.querySelector("form").submit();
+        }
     });
 
     function validateInputs(ths) {
@@ -104,4 +98,4 @@ function initMultiStepForm() {
         }
         return inputsValid;
     }
-}    
+             }
